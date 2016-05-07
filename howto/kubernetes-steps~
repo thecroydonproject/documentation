@@ -1,0 +1,33 @@
+
+Steps to build docker containers and use kubernetes to manage
+
+them :
+
+
+using a droplet on digital ocean
+
+1) Create new Google cloud project. make note of project ID. Enable billing
+
+2) prep local env to have the right app env (node.js .. go .. etc)
+
+3) install docker
+
+4) install Google Cloud SDK
+
+5) install kubectl 
+
+	$gcloud components install kubectl
+
+6)create app and test it locally
+
+7)create Dockerfile
+
+8) $ docker build -t gcr.io/PROJECT_ID/hello-node:v1 .
+
+9) $ docker run -d -p 8080:8080 gcr.io/PROJECT_ID/hello-node:v1  - check app is running in container locally. stop it after testing
+
+10) publish container 
+
+	& gcloud docker push gcr.io/PROJECT_ID/hello-node:v1 [check on google portal]
+
+11) create cluster (from portal)
